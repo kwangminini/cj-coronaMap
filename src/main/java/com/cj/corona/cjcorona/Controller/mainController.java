@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class mainController {
-    @GetMapping("/hello")
+    @GetMapping("/mainBoard")
     public String main(Model model){
         return "mainBoard";
     }
