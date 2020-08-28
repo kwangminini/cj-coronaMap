@@ -24,7 +24,7 @@
                 <a href="/">Dashboard</a>
             </li>
             <li>
-                <a href="#">제일제당센터</a>
+                <a href="#">제일제당</a>
             </li>
             <li>
                 <a href="#">올리브네트웍스</a>
@@ -33,13 +33,16 @@
                 <a href="#">올리브영</a>
             </li>
             <li>
-                <a href="#">ENM센터</a>
+                <a href="#">대한통운</a>
+            </li>
+            <li>
+                <a href="#">ENM</a>
             </li>
             <li>
                 <a href="#">오쇼핑</a>
             </li>
             <li>
-                <a href="#">대한통운</a>
+                <a href="#">CGV</a>
             </li>
             <li>
                 <a href="#">푸드빌</a>
@@ -50,22 +53,34 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+        <div class="row">신종코로나바이러스-19</div>
         <div class="container">
+
             <div class="row corona-board">
                 <div class="col-sm">
-                    One of three columns
+                    <div>확진자 수</div>
+                    <div th:text="${decideCnt}">111</div>
+                    <div>(전일대비) +333</div>
                 </div>
                 <div class="col-sm">
-                    One of three columns
+                    <div>격리해제 수</div>
+                    <div th:text="${clearCnt}">111</div>
+                    <div>(전일대비) +333</div>
                 </div>
                 <div class="col-sm">
-                    One of three columns
+                    <div>검사진행 수</div>
+                    <div th:text="${examCnt}">111</div>
+                    <div>(전일대비) +333</div>
                 </div>
                 <div class="col-sm">
-                    One of three columns
+                    <div>사망자 수</div>
+                    <div th:text="${deathCnt}">111</div>
+                    <div>(전일대비) +333</div>
                 </div>
                 <div class="col-sm">
-                    One of three columns
+                    <div>치료중 환자 수</div>
+                    <div th:text="${careCnt}">111</div>
+                    <div>(전일대비) +333</div>
                 </div>
             </div>
         </div>
