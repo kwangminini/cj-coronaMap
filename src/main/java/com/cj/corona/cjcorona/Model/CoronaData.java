@@ -2,9 +2,11 @@ package com.cj.corona.cjcorona.Model;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 @Data
 @NoArgsConstructor
+@Component
 public class CoronaData {
     private String resultCode;  //결과코드
     private String resultMsg;   //결과메세지

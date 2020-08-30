@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
+
 public class corona {
     private String resultCode;  //결과코드
     private String resultMsg;   //결과메세지
