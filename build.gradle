@@ -27,6 +27,7 @@ dependencies {
     implementation 'org.webjars.bower:bootstrap:4.5.2'
     implementation 'com.google.code.gson:gson'
     implementation('org.apache.httpcomponents:httpclient')
+    implementation('org.springframework.boot:spring-boot-starter-quartz')
     compile('org.springframework.boot:spring-boot-devtools')
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'

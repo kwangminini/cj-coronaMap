@@ -20,6 +20,14 @@ body{
     align-items: center;
     justify-content: center;
 }
+.content-header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+}
 
 
 #wrapper {
