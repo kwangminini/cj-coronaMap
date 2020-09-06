@@ -3,6 +3,7 @@ package com.cj.corona.cjcorona.Controller;
 import com.cj.corona.cjcorona.Model.Corona;
 import com.cj.corona.cjcorona.Model.CoronaData;
 import com.cj.corona.cjcorona.Service.MainService;
+import com.cj.corona.cjcorona.utils.CoronaUtils;
 import lombok.Builder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ public class MainController {
     @Autowired
     private Corona corona;
     List<CoronaData> coronaDataList;
+    private CoronaUtils coronaUtils = new CoronaUtils();
     @GetMapping("/")
     public String main(Model model) throws IOException {
         HashMap<String,Object> result = new HashMap<>();
@@ -54,12 +56,22 @@ public class MainController {
                 coronaDataList.get(1).getDeathCnt(),
                 coronaDataList.get(1).getCareCnt());
 
-        logger.info("cheilJedang CoronaData::::"+coronaDataList);
+
+        logger.info("cheilJedang getDecideCnt::::"+coronaUtils.cal(corona.getCurDecideCnt(),corona.getPastDecideCnt()));
+        logger.info("cheilJedang getClearCnt::::"+coronaUtils.cal(corona.getCurClearCnt(),corona.getPastClearCnt()));
+        logger.info("cheilJedang getExamCnt::::"+coronaUtils.cal(corona.getCurExamCnt(),corona.getPastExamCnt()));
+        logger.info("cheilJedang getDeathCnt::::"+coronaUtils.cal(corona.getCurDeathCnt(),corona.getPastDeathCnt()));
+        logger.info("cheilJedang getCareCnt::::"+coronaUtils.cal(corona.getCurCareCnt(),corona.getPastCareCnt()));
         model.addAttribute("decideCnt",coronaDataList.get(0).getDecideCnt());
+        model.addAttribute("decideCntRate",coronaUtils.cal(corona.getCurDecideCnt(),corona.getPastDecideCnt()));
         model.addAttribute("clearCnt",coronaDataList.get(0).getClearCnt());
+        model.addAttribute("clearCntRate",coronaUtils.cal(corona.getCurClearCnt(),corona.getPastClearCnt()));
         model.addAttribute("examCnt",coronaDataList.get(0).getExamCnt());
+        model.addAttribute("examCntRate",coronaUtils.cal(corona.getCurExamCnt(),corona.getPastExamCnt()));
         model.addAttribute("deathCnt",coronaDataList.get(0).getDeathCnt());
+        model.addAttribute("deathCntRate",coronaUtils.cal(corona.getCurDeathCnt(),corona.getPastDeathCnt()));
         model.addAttribute("careCnt",coronaDataList.get(0).getCareCnt());
+        model.addAttribute("careCntRate",coronaUtils.cal(corona.getCurCareCnt(),corona.getPastCareCnt()));
 
         return "cheilJedang";
     }

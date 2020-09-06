@@ -27,7 +27,7 @@ public class Corona {
 
     @Builder
     public void setCurData(String curDecideCnt, String curClearCnt, String curExamCnt, String curDeathCnt, String curCareCnt){
-        this.curDeathCnt = curDeathCnt;
+        this.curDecideCnt = curDecideCnt;
         this.curClearCnt = curClearCnt;
         this.curExamCnt = curExamCnt;
         this.curDeathCnt = curDeathCnt;
