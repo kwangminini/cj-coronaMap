@@ -18,13 +18,15 @@ public class CoronaData {
     private String examCnt;    //검사진행 수
     private String deathCnt;   //사망자 수
     private String careCnt;    //치료중 환자
+    private String createDt;   //생성일
 
     @Builder
-    public CoronaData (String decideCnt, String clearCnt, String examCnt, String deathCnt, String careCnt){
+    public CoronaData (String decideCnt, String clearCnt, String examCnt, String deathCnt, String careCnt, String createDt){
         this.decideCnt = decideCnt;
         this.clearCnt = clearCnt;
         this.examCnt = examCnt;
         this.deathCnt = deathCnt;
         this.careCnt = careCnt;
+        this.createDt = createDt;
     }
 }

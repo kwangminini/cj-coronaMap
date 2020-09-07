@@ -27,5 +27,9 @@ public class CoronaUtils {
 
         return returnVal;
     }
-
+    public String createDt(String createDt){
+        log.info("createDt:::"+createDt);
+        String[] createDtArr = createDt.split(":");
+        return createDtArr[0]+":"+createDtArr[1]+" 기준";
+    }
 }

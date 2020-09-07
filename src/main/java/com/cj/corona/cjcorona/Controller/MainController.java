@@ -72,7 +72,7 @@ public class MainController {
         model.addAttribute("deathCntRate",coronaUtils.cal(corona.getCurDeathCnt(),corona.getPastDeathCnt()));
         model.addAttribute("careCnt",coronaDataList.get(0).getCareCnt());
         model.addAttribute("careCntRate",coronaUtils.cal(corona.getCurCareCnt(),corona.getPastCareCnt()));
-
+        model.addAttribute("createDt",coronaUtils.createDt(coronaDataList.get(0).getCreateDt()));
         return "cheilJedang";
     }
 }

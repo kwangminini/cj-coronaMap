@@ -91,7 +91,8 @@ public class MainService {
                     String examCnt = getTagValue("examCnt",element);
                     String deathCnt = getTagValue("deathCnt",element);
                     String careCnt = getTagValue("careCnt",element);
-                    CoronaData coronaData = new CoronaData(decideCnt,clearCnt,examCnt,deathCnt,careCnt);
+                    String createDt = getTagValue("createDt",element);
+                    CoronaData coronaData = new CoronaData(decideCnt,clearCnt,examCnt,deathCnt,careCnt,createDt);
                     logger.info("coronaData:::"+coronaData);
                     coronaDataList.add(coronaData);
                 }
