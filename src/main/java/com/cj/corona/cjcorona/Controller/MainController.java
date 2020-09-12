@@ -30,7 +30,7 @@ public class MainController {
     public String main(Model model) throws IOException {
         HashMap<String,Object> result = new HashMap<>();
         coronaDataList = new ArrayList<>();
-        coronaDataList = mainService.setUrl("20200827","20200828");
+        coronaDataList = mainService.setUrl("20200911","20200912");
         logger.info("MainController CoronaData::::"+coronaDataList);
         model.addAttribute("decideCnt",coronaDataList.get(0).getDecideCnt());
         model.addAttribute("clearCnt",coronaDataList.get(0).getClearCnt());
@@ -44,7 +44,7 @@ public class MainController {
     @GetMapping("/cheilJedang")
     public String cheilJedang(Model model) throws IOException {
         coronaDataList = new ArrayList<>();
-        coronaDataList = mainService.setUrl("20200903","20200904");
+        coronaDataList = mainService.setUrl("20200911","20200912");
         corona.setCurData(coronaDataList.get(0).getDecideCnt(),
                 coronaDataList.get(0).getClearCnt(),
                 coronaDataList.get(0).getExamCnt(),

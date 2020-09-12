@@ -21,10 +21,10 @@
                 </a>
             </li>
             <li>
-                <a href="/">Dashboard</a>
+                <a id="dashBoard" href="/">Dashboard</a>
             </li>
             <li>
-                <a href="/cheilJedang">제일제당</a>
+                <a id="cheilJedang" href="/cheilJedang">제일제당</a>
             </li>
             <li>
                 <a href="#">올리브네트웍스</a>
@@ -92,6 +92,11 @@
 
 
 <script>
+    $(function(){
+        $('#dashBoard').css("background","rgba(255,255,255,0.2)");
+        $('#dashBoard').css("color","#fff");
+        $('#dashBoard').css("text-decoration","none");
+    })
 </script>
 </body>
 </html>
