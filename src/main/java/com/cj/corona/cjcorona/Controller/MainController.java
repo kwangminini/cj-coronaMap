@@ -30,14 +30,14 @@ public class MainController {
     public String main(Model model) throws IOException {
         HashMap<String,Object> result = new HashMap<>();
         coronaDataList = new ArrayList<>();
-        coronaDataList = mainService.setUrl("20200911","20200912");
+        coronaDataList = mainService.setUrl("20201105","20201106");
         logger.info("MainController CoronaData::::"+coronaDataList);
         model.addAttribute("decideCnt",coronaDataList.get(0).getDecideCnt());
         model.addAttribute("clearCnt",coronaDataList.get(0).getClearCnt());
         model.addAttribute("examCnt",coronaDataList.get(0).getExamCnt());
         model.addAttribute("deathCnt",coronaDataList.get(0).getDeathCnt());
         model.addAttribute("careCnt",coronaDataList.get(0).getCareCnt());
-
+        model.addAttribute("createDt",coronaUtils.createDt(coronaDataList.get(0).getCreateDt()));   //데이터 생성 기준
         return "index";
     }
 
