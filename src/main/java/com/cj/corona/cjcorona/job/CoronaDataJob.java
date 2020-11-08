@@ -12,7 +12,7 @@ public class CoronaDataJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         log.info("----------------------Job------------------");
-//        LocalDate localDate = LocalDate.now();
-//        log.info("localData:::"+localDate);
+        LocalDate localDate = LocalDate.now();
+        log.info("localData:::"+localDate);
     }
 }
