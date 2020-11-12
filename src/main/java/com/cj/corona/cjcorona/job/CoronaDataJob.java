@@ -14,5 +14,6 @@ public class CoronaDataJob implements Job {
         log.info("----------------------Job------------------");
         LocalDate localDate = LocalDate.now();
         log.info("localData:::"+localDate);
+
     }
 }
