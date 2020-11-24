@@ -3,6 +3,7 @@ package com.cj.corona.cjcorona.Service;
 import com.cj.corona.cjcorona.Model.CoronaData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
