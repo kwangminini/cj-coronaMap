@@ -24,6 +24,8 @@ import java.util.List;
 public class MainService {
     private Logger logger = LoggerFactory.getLogger(MainService.class);
     private List<CoronaData> coronaDataList;
+
+    //공공데이터 호출
     public List<CoronaData> setUrl(String startDt, String endDt) throws IOException {
         coronaDataList=new ArrayList<>();
         StringBuilder urlBuilder = new StringBuilder("http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson");
@@ -38,8 +40,8 @@ public class MainService {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
-        logger.info("Response code: " + conn.getResponseCode());
         BufferedReader rd;
+        //error 처리 로직
         if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         } else {
@@ -53,7 +55,6 @@ public class MainService {
         }
         rd.close();
         conn.disconnect();
-
 
         try {
             logger.info("sb:::"+sb.toString());
@@ -74,6 +75,8 @@ public class MainService {
         }
         return node.getNodeValue();
     }
+
+    //받은 내용 파싱
     public void xmlParsing(String xml) throws ParserConfigurationException, IOException, SAXException {
         if(xml != null){
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -93,7 +96,6 @@ public class MainService {
                     String careCnt = getTagValue("careCnt",element);
                     String createDt = getTagValue("createDt",element);
                     CoronaData coronaData = new CoronaData(decideCnt,clearCnt,examCnt,deathCnt,careCnt,createDt);
-                    logger.info("coronaData:::"+coronaData);
                     coronaDataList.add(coronaData);
                 }
             }

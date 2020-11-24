@@ -31,7 +31,6 @@ public class MainController {
         HashMap<String,Object> result = new HashMap<>();
         coronaDataList = new ArrayList<>();
         coronaDataList = mainService.setUrl("20201105","20201106");
-        logger.info("MainController CoronaData::::"+coronaDataList);
         model.addAttribute("decideCnt",coronaDataList.get(0).getDecideCnt());
         model.addAttribute("clearCnt",coronaDataList.get(0).getClearCnt());
         model.addAttribute("examCnt",coronaDataList.get(0).getExamCnt());

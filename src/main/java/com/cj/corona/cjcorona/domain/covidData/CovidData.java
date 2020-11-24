@@ -1,10 +1,12 @@
-package com.cj.corona.cjcorona.domain;
+package com.cj.corona.cjcorona.domain.covidData;
 
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -12,7 +14,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class CovidData {
     @Id
-    private String covidId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long covidId;
     private String decideCnt;
     private String clearCnt;
     private String examCnt;

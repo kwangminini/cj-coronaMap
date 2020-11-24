@@ -27,6 +27,7 @@ public class CoronaUtils {
 
         return returnVal;
     }
+    //화면에 뿌려줄 데이터 변환
     public String createDt(String createDt){
         log.info("createDt:::"+createDt);
         String[] createDtArr = createDt.split(":");
