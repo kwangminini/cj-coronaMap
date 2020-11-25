@@ -1,8 +1,11 @@
 package com.cj.corona.cjcorona.Service;
 
 import com.cj.corona.cjcorona.Model.CoronaData;
+import com.cj.corona.cjcorona.domain.covidData.CovidData;
+import com.cj.corona.cjcorona.domain.covidData.CovidDataRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -25,7 +28,8 @@ import java.util.List;
 public class MainService {
     private Logger logger = LoggerFactory.getLogger(MainService.class);
     private List<CoronaData> coronaDataList;
-
+    @Autowired
+    private CovidDataRepository covidDataRepository;
     //공공데이터 호출
     public List<CoronaData> setUrl(String startDt, String endDt) throws IOException {
         coronaDataList=new ArrayList<>();
@@ -105,4 +109,12 @@ public class MainService {
         }
     }
 
+    public List<CovidData> getCovidData(){
+        List<CovidData> covidDataList = covidDataRepository.findCurAndPastData();
+        for(CovidData c : covidDataList){
+            logger.info("covidData:::"+c.toString());
+        }
+        return covidDataList;
+
+    }
 }

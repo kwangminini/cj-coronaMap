@@ -24,13 +24,13 @@ public class coronaScheduler {
     @Autowired
     private MainService mainService;
     @Builder
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(cron = "* * * 11 * *")
     public void setCoronaDb() throws IOException {  //매일 오전 11시에 공공 데이터를 DB에 세팅
         LocalDate curDate = LocalDate.now();
         String startDate = curDate.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         String endDate = curDate.plusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
-        List<CoronaData> coronaDataList = mainService.setUrl("20201123","20201123");
+        List<CoronaData> coronaDataList = mainService.setUrl("20201125","20201125");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
         for(CoronaData coronaData : coronaDataList){

@@ -48,13 +48,16 @@
             <li>
                 <a href="#">푸드빌</a>
             </li>
+            <li>
+                <a id="freshWay" href="/freshWay">프레시웨이</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div th:text="${createDt}">dd</div>
+        <div th:text="${createDt}"></div>
         <div class="row content-header">코로나바이러스-19</div>
         <div class="container">
 
@@ -100,7 +103,17 @@
         $('#cheilJedang').css("background","rgba(255,255,255,0.2)");
         $('#cheilJedang').css("color","#fff");
         $('#cheilJedang').css("text-decoration","none");
-
+        var locationListHash;
+        $.ajax({
+            method:'POST',
+            url:'/getLocationData',
+            dataType:'json',
+            async:false,
+            success:function (data){
+                locationListHash=JSON.parse(JSON.stringify(data));
+                console.log("data:::"+JSON.stringify(data));
+            }
+        })
         const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 
         let options = { //지도를 생성할 때 필요한 기본 옵션
@@ -117,11 +130,25 @@
         // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
         let zoomControl = new kakao.maps.ZoomControl();
         map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
+        console.log("locationListHash::"+JSON.stringify(locationListHash));
+        var locationList = locationListHash['data'];
+        let locationData=[];
+        for (var i=0;i<locationList.length;i++){
+            var location = [locationList[i]['latitude'],
+                            locationList[i]['longitude'],
+                            "<div style='display: flex;flex-direction: column; width:150px;align-items: center;justify-content: center;border-radius: 25px;font-weight: bold;font-size: 15px;'>"
+                            +locationList[i]['region']+" 확진자"
+                            +"<div style='display: flex;border-top: 1px solid black; width: 150px;align-items: center;justify-content: center;font-weight: normal;font-size: 14px;'>"
+                            +locationList[i]['infectedMonth']+"/"+locationList[i]['infectedDay']+" "+locationList[i]['location']
+                            +"</div></div>"
+                            ];
+            locationData.push(location);
+            console.log("location:::"+JSON.stringify(location));
+        }
         /*-------------------------------------마커------------------------------------------*/
-        let locationData=[
-            [37.56711,127.005680, "<div style='display: flex;flex-direction: column; width:150px;align-items: center;justify-content: center;border-radius: 25px;font-weight: bold;'>경기 확진자<div style='display: flex;border-top: 1px solid black; width: 150px;align-items: center;justify-content: center;font-weight: normal;'>8/28 국립중앙의료원</div></div>"]
-        ];
+        // let locationData=[
+        //     [37.56711,127.005680, "<div style='display: flex;flex-direction: column; width:150px;align-items: center;justify-content: center;border-radius: 25px;font-weight: bold;'>경기 확진자<div style='display: flex;border-top: 1px solid black; width: 150px;align-items: center;justify-content: center;font-weight: normal;'>8/28 국립중앙의료원</div></div>"]
+        // ];
         // 마커가 표시될 위치입니다
         let markerPosition  = new kakao.maps.LatLng(37.563807, 127.003273);
         var imageSrc = '../img/CJ_Group_CI.png', // 마커이미지의 주소입니다
