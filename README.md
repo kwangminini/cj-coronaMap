@@ -8,3 +8,5 @@ cj-coronaMap
 2. MySQL <br/>
 3. JPA <br/>
 4. Gradle <br/>
+
+![시연](./image/시연.PNG)
