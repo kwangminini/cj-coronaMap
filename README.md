@@ -9,4 +9,4 @@ cj-coronaMap
 3. JPA <br/>
 4. Gradle <br/>
 
-![시연](./image/시연.PNG)
+![시연](https://user-images.githubusercontent.com/48472989/209420853-e721e1d9-6cf5-4f07-802a-0b724b5c928d.png)
